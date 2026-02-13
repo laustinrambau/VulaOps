@@ -1,6 +1,6 @@
 export default function Research() {
   return (
-    <section id="research" className="scroll-mt-20 border-t border-slate-800/80 bg-slate-900/40 py-20">
+    <section id="research" className="scroll-mt-20 border-t border-slate-800/40 bg-slate-950 py-20">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-yellow-700">
           Our Core Focus Areas

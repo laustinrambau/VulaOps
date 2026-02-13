@@ -8,6 +8,7 @@ import Research from './components/Research'
 import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Methods from './components/Methods'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Services />
         <UseCases />
         <WhyVulaOps />
+        <Methods/>
         <Research />
         <About />
         <Contact />

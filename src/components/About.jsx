@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section id="about" className="scroll-mt-20 border-t border-slate-800/80 bg-slate-900/40 py-20">
+    <section id="about" className="scroll-mt-20 border-t border-slate-800/80 bg-slate-950 py-20">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-yellow-700">
           About Us
@@ -14,7 +14,7 @@ export default function About() {
             <p className="text-lg text-slate-300 leading-relaxed">
               We are an independent{' '}
               <span className="font-semibold text-yellow-700">
-                cybersecurity research and intelligence firm
+                cybersecurity research and intelligence organization
               </span>{' '}
               dedicated to identifying, analyzing, and mitigating emerging cyber threats.
             </p>
@@ -53,22 +53,6 @@ export default function About() {
             </div>
           </div>
 
-          <div className="flex items-center justify-center">
-            <div className="relative aspect-square max-w-sm rounded-2xl border border-slate-700/50 bg-slate-800/30 p-8">
-              <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-yellow-700/20 to-transparent opacity-50" />
-              <div className="relative flex h-full flex-col justify-center text-center">
-                <p className="font-mono text-6xl font-bold text-yellow-700">VulaOps</p>
-                <p className="mt-2 text-sm uppercase tracking-widest text-slate-500">
-                  Cybersecurity Research
-                </p>
-                <div className="mt-6 flex flex-col gap-2 text-xs text-slate-400">
-                  <p>Threat Intelligence & Analysis</p>
-                  <p>Vulnerability Research</p>
-                  <p>Risk & Strategic Advisory</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
