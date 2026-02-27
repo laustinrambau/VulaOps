@@ -9,6 +9,8 @@ import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Methods from './components/Methods'
+import ContactForm from './components/ContactForm'
+import FeaturesSection from './components/FeaturesSection'
 
 function App() {
   return (
@@ -17,11 +19,8 @@ function App() {
       <main>
         <Hero />
         <Stats />
-        <Services />
+        <FeaturesSection/>
         <UseCases />
-        <WhyVulaOps />
-        <Methods/>
-        <Research />
         <About />
         <Contact />
         <Footer />
