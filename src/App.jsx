@@ -11,6 +11,7 @@ import Footer from './components/Footer'
 import Methods from './components/Methods'
 import ContactForm from './components/ContactForm'
 import FeaturesSection from './components/FeaturesSection'
+import AboutV1 from './components/Aboutv1'
 
 function App() {
   return (
@@ -18,9 +19,10 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <About />
+        <AboutV1/>
         <FeaturesSection/>
         <UseCases />
+      
         <Contact />
         <Footer />
       </main>

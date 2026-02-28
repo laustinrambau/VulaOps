@@ -54,7 +54,7 @@ const TerminalWindow = () => {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: 0.3 }}
-      className="relative overflow-hidden rounded-lg border bg-white border-border bg-card/80"
+      className="relative overflow-hidden rounded-lg border bg-white border-border bg-card/80 text-yellow-600"
     >
       <div className="flex items-center gap-2 border-b border-border px-4 py-2.5">
         <div className="h-2.5 w-2.5 rounded-full bg-destructive/60" />

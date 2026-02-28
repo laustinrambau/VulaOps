@@ -27,7 +27,7 @@ const StatCard = ({ value, label, suffix, delay }) => (
 
 const StatsBar = () => {
   const stats = [
-    { value: "2.4B", suffix: "+", label: "IOCs Processed Daily" },
+    { value: "50", suffix: "+", label: "Published Researches" },
     { value: "98.7", suffix: "%", label: "Detection Accuracy" },
     { value: "150", suffix: "+", label: "Intel Sources" },
     { value: "< 15", suffix: "min", label: "Avg Response Time" },

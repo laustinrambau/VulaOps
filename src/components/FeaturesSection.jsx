@@ -7,11 +7,11 @@ import StatsBar from "./StatsBar";
 
 const FeaturesSection = () => {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-slate-950 py-20 lg:py-28 text-white">
+    <section className="relative min-h-screen overflow-hidden bg-slate-950 py-10 text-white border-t border-slate-800/80">
       {/* Hex grid canvas background */}
-      <div className="pointer-events-none absolute inset-0">
+      {/* <div className="pointer-events-none absolute inset-0">
         <HexGridBackground />
-      </div>
+      </div> */}
 
       {/* Top radial glow */}
       {/* <div className="pointer-events-none absolute left-1/2 top-0 h-[800px] w-[1200px] -translate-x-1/2 -translate-y-1/3">
@@ -38,24 +38,23 @@ const FeaturesSection = () => {
                   <div className="h-2 w-2 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary)/0.5)]" />
                   <div className="h-px w-10 bg-gradient-to-r from-primary/60 to-transparent" />
                 </div>
-                <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.3em] text-primary">
+                <span className="font-mono text-[18px] font-semibold uppercase tracking-[0.3em] text-primary">
                   What we do
                 </span>
               </div>
 
               {/* Main heading */}
-              <h2 className="mb-5 text-4xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl text-white">
-                Next-Gen Cyber
+              <h2 className="mb-5 text-4xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl text-white">
+                Research
                 <br />
                 <span className="text-gradient-cyber">Intelligence</span>
                 <br />
-                <span className="text-muted-foreground/60">Arsenal</span>
+                <span className="text-muted-foreground/60">Advisory</span>
               </h2>
 
               {/* Description */}
               <p className="max-w-lg text-base leading-relaxed text-muted-foreground lg:text-lg">
-                Military-grade tools engineered for elite security teams.
-                Detect, analyze, and neutralize threats at machine speed.
+                Independent & unbiased research Ethical & responsible disclosure Deep technical analysis Executive-level strategic reporting Confidential engagements
               </p>
             </motion.div>
           </div>
@@ -72,7 +71,7 @@ const FeaturesSection = () => {
         </div>
 
         {/* Feature grid */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((feature, index) => (
             <FeatureCard key={feature.tag} feature={feature} index={index} />
           ))}

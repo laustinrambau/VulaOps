@@ -29,7 +29,7 @@ export default function Contact() {
           Contact
         </h2>
         <p className="mt-2 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
-          Strengthen your cybersecurity
+          Speak with a Cyber Risk Advisor
         </p>
         <p className="mt-4 max-w-xl text-slate-400">
           For research partnerships, security assessments, or advisory—reach out below.

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const ThreatMap = () => {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
-  const [dimensions, setDimensions] = useState({ width: 800, height: 300 });
+  const [size, setSize] = useState(500); // initial square size
 
   const nodes = [
     { x: 0.08, y: 0.3, targetX: 0.5, targetY: 0.5, type: "source", label: "APT-29", active: true },
@@ -18,13 +18,12 @@ const ThreatMap = () => {
     { x: 0.92, y: 0.75, targetX: 0.65, targetY: 0.35, type: "source", label: "APT-38", active: true },
   ];
 
+  // Update square size based on container width
   useEffect(() => {
     const resize = () => {
       if (containerRef.current) {
-        setDimensions({
-          width: containerRef.current.offsetWidth,
-          height: containerRef.current.offsetHeight,
-        });
+        const w = containerRef.current.offsetWidth;
+        setSize(w); // perfect square: width = height
       }
     };
 
@@ -33,19 +32,17 @@ const ThreatMap = () => {
     return () => window.removeEventListener("resize", resize);
   }, []);
 
+  // Draw canvas
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     const dpr = window.devicePixelRatio || 1;
-
-    canvas.width = dimensions.width * dpr;
-    canvas.height = dimensions.height * dpr;
-
-    ctx.setTransform(1, 0, 0, 1, 0, 0); // reset transform
+    canvas.width = size * dpr;
+    canvas.height = size * dpr;
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.scale(dpr, dpr);
 
     let time = 0;
@@ -53,15 +50,14 @@ const ThreatMap = () => {
 
     const draw = () => {
       time += 0.01;
-      ctx.clearRect(0, 0, dimensions.width, dimensions.height);
+      ctx.clearRect(0, 0, size, size);
 
-      const w = dimensions.width;
-      const h = dimensions.height;
+      const w = size;
+      const h = size;
 
       // Draw connections
       nodes.forEach((node) => {
         if (node.type === "target") return;
-
         const sx = node.x * w;
         const sy = node.y * h;
         const tx = node.targetX * w;
@@ -79,7 +75,6 @@ const ThreatMap = () => {
         if (node.active) {
           const speed = 0.3 + Math.sin(node.x * 10) * 0.15;
           const progress = (time * speed + node.x * 3) % 1;
-
           const px = sx + (tx - sx) * progress;
           const py = sy + (ty - sy) * progress;
 
@@ -112,13 +107,10 @@ const ThreatMap = () => {
         if (node.active) {
           ctx.beginPath();
           ctx.arc(nx, ny, radius * 3, 0, Math.PI * 2);
-
           const grd = ctx.createRadialGradient(nx, ny, 0, nx, ny, radius * 3);
           const color = node.type === "source" ? "255, 80, 80" : "0, 220, 255";
-
           grd.addColorStop(0, `rgba(${color}, ${0.15 * pulse})`);
           grd.addColorStop(1, `rgba(${color}, 0)`);
-
           ctx.fillStyle = grd;
           ctx.fill();
         }
@@ -151,7 +143,7 @@ const ThreatMap = () => {
 
     draw();
     return () => cancelAnimationFrame(animId);
-  }, [dimensions]);
+  }, [size]);
 
   return (
     <motion.div
@@ -160,7 +152,8 @@ const ThreatMap = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="relative h-[250px] overflow-hidden rounded-xl border border-border bg-slate-950 sm:h-[300px]"
+      className="relative w-full max-w-lg overflow-hidden rounded-xl border border-border bg-slate-500"
+      style={{ aspectRatio: "1 / 1" }} // perfect square
     >
       <canvas
         ref={canvasRef}
